@@ -2,12 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Caesar Cipher</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width">
+    <title>Mensagens Criptografadass</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="root"></div>
+
+    <h1> Mensagens secretas </h1>
+    <p> Bem vindo usuário! Através deste recurso, você poderá transformar messagens simples em menssagens Criptografadas e para você que já possui uma menssagem Criptografada, poderá Descriptografar. </p>
+    <br>
+    <br>
+    <div>
+    <label> Introduza sua Mensagem: </label>
+    <input id="frase" type="text" />
+    <br>
+    <br>
+    <label> Introduza o deslocamento: </label>
+    <input id="deslocamento" type="text" />
+    <br>
+    <br>
+    <button onclick="cipherCode()"> Traduzir </button>
+    <p id="mensagem"></p>
+  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+    <label> Introduza a Mensagem Criptografada: </label>
+    <input id="frase2" type="text" />
+    <br>
+    <br>
+    <label> Introduza o deslocamento: </label>
+    <input id="deslocamento2" type="text" />
+    <br>
+    <br>
+    <button onclick="cipherDeCode()"> Traduzir</button>
+    <p id="mensagem2"></p>
+    </div>
     <script src="cipher.js"></script>
-    <script src="index.js"></script>
+    <script src="tests.js"></script>
   </body>
 </html>
