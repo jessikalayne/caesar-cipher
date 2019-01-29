@@ -7,7 +7,6 @@ function cipherCode() {
 
   document.getElementById("mensagem").innerHTML = msgcrip;
 }
-
 function encode (frase, offset) {
   let intDesloc = parseInt (offset);
   var fraseCriptografada = [];
@@ -15,14 +14,14 @@ function encode (frase, offset) {
   for (let i = 0; i <frase.length; i++) {
     if (frase[i] != ' ') {
       let code = frase[i].charCodeAt();
-      let resultado = ((code - 65 + intDesloc) % 26) + 65;
+      let resultado = ((code - 65 + (intDesloc % 26)) + 26) % 26 + 65;
       let msgCrip = String.fromCharCode(resultado);
       fraseCriptografada = fraseCriptografada + msgCrip;
-      console.log(resultado);
+      //console.log(resultado);
 
     } else {
       fraseCriptografada = fraseCriptografada + " ";
-      }
+     }
   }
 
   return fraseCriptografada;
@@ -47,12 +46,12 @@ function decode (frase, offset) {
   for (let i = 0; i <frase.length; i++) {
     if (frase[i] != ' ') {
       let code = frase[i].charCodeAt();
-      let resultado = ((code + 65 - intDesloc) % 26) + 65;
+      let resultado = ((code + 65 - (intDesloc % 26)) + 26) % 26 + 65;
       let msgCrip = String.fromCharCode(resultado);
       fraseCriptografada = fraseCriptografada + msgCrip;
 
 
-    } else {
+     } else {
       fraseCriptografada = fraseCriptografada + " ";
     }
   }
@@ -60,3 +59,4 @@ function decode (frase, offset) {
   return fraseCriptografada;
 
 }
+
