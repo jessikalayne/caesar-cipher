@@ -1,62 +1,68 @@
 function cipherCode() {
-  const frase = document.getElementById("frase").value;
-  const deslocamento = document.getElementById("deslocamento").value;
-  let fraseUp = frase.toUpperCase();
-
-  const msgcrip = encode (fraseUp, deslocamento);
+  const phrase = document.getElementById("frase").value;
+  const number = parseInt(document.getElementById("deslocamento").value);
+  
+  const msgcrip = encode (phrase, number);
 
   document.getElementById("mensagem").innerHTML = msgcrip;
 }
-function encode (frase, offset) {
-  let intDesloc = parseInt (offset);
-  var fraseCriptografada = [];
 
-  for (let i = 0; i <frase.length; i++) {
-    if (frase[i] != ' ') {
-      let code = frase[i].charCodeAt();
-      let resultado = ((code - 65 + (intDesloc % 26)) + 26) % 26 + 65;
-      let msgCrip = String.fromCharCode(resultado);
-      fraseCriptografada = fraseCriptografada + msgCrip;
-      //console.log(resultado);
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
 
+
+function encode (phrase, offset) {
+  let phraseCrip = "";
+
+
+  for (let i = 0; i <phrase.length; i++) {
+    let code = phrase.charCodeAt(i);
+    if ((code >= 65) && (code <= 90)) {
+      phraseUp = mod((code - 65 + offset), 26) + 65;
+      phraseCrip+= String.fromCharCode(phraseUp);
+    } else if ((code >= 97) && (code <= 122)) {
+      phraseDown = mod((code - 97 + offset), 26) + 97;
+      phraseCrip += String.fromCharCode(phraseDown);
     } else {
-      fraseCriptografada = fraseCriptografada + " ";
-     }
+      phraseCrip += String.fromCharCode(code);
+    }
+      
   }
 
-  return fraseCriptografada;
+  return phraseCrip;
 
 }
 
 
 function cipherDeCode() {
-  const frase = document.getElementById("frase2").value;
-  const deslocamento = document.getElementById("deslocamento2").value;
-  let fraseUp = frase.toUpperCase();
-
-  const msgcrip = decode (fraseUp, deslocamento);
+  const phrase = document.getElementById("frase2").value;
+  const number = parseInt(document.getElementById("deslocamento2").value);
+  
+  const msgcrip = decode (phrase, number);
 
   document.getElementById("mensagem2").innerHTML = msgcrip;
 }
 
-function decode (frase, offset) {
-  let intDesloc = parseInt (offset);
-  var fraseCriptografada = [];
-
-  for (let i = 0; i <frase.length; i++) {
-    if (frase[i] != ' ') {
-      let code = frase[i].charCodeAt();
-      let resultado = ((code + 65 - (intDesloc % 26)) + 26) % 26 + 65;
-      let msgCrip = String.fromCharCode(resultado);
-      fraseCriptografada = fraseCriptografada + msgCrip;
+function decode (phrase, offset) {
+  let phraseCrip = "";
 
 
-     } else {
-      fraseCriptografada = fraseCriptografada + " ";
+  for (let i = 0; i <phrase.length; i++) {
+    let code = phrase.charCodeAt(i);
+    if ((code >= 65) && (code <= 90)) {
+      phraseUp = mod((code - 65 - offset), 26) + 65;
+      phraseCrip += String.fromCharCode(phraseUp);
+    } else if ((code >= 97) && (code <= 122)) {
+      phraseDown = mod((code - 97 - offset), 26) + 97;
+      phraseCrip += String.fromCharCode(phraseDown);
+    } else {
+      phraseCrip += String.fromCharCode(code);
     }
+      
   }
 
-  return fraseCriptografada;
+  return phraseCrip;
+
 
 }
-

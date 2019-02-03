@@ -1,43 +1,47 @@
 button {
-  font-size: 15px;
-  border: 5px ridge;
-  background-color: palevioletred (4, 4, 80);
-  font-family: "Verdana";
-  color: rgb(20, 13, 13);
+  font-size: 20px;
+  border: 3px solid;
+  background-color: rgba(82, 224, 177, 0.199);
+  font-family: "Consolas";
+  color:  rgb(253, 255, 251);
+  border-color:rgb(2, 26, 17);
+  
 
 }
 
 label{
- font-family: "Verdana";
- font-size: 15px;
+ font-family: "Consolas";
+ font-size: 20px;
+ color:  rgb(209, 241, 179);
 
 }
 
 input {
-  border: 4px ridge;
+  border: 2px ridge;
   background-color: white(4, 4, 80);
-  font-family: "Verdana";
-  font-size: 18px;
-  color: rgb(36, 26, 26);
+  font-family: "Consolas";
+  font-size: 15px;
+  color: rgb(249, 250, 248);
 
 }
 
 p {
-  font-family: "Verdana";
+  font-family: "Consolas";
   font-size: 20px;
+  color: rgb(80, 109, 53);
 
 
 }
 
 h1 {
-  font-family: "Verdana";
-  color: black;
-  font-size: 30px;
+  font-family: "Consolas";
+  color: rgb(209, 241, 179);
+  font-size: 45px;
   width: 40%;
   height: 40%;
 
 }
 
 * {
-  background-color: rgb(228, 233, 236);
+  background-color: rgb(1, 14, 22);
 }
